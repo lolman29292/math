@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Math Ranked</title>
+    </head>
+    <body>
+        <br><br>
+        <h1>What is the answer?</h1>
+        <br>
+        <script src="addition.js"></script>
+        <script src="subtraction.js"></script>
+        <script src="multiplication.js"></script>
+        <script src="division.js"></script>
+        <script>
+let score = 0
+let scoreinc = 4
+let scoretext = "Score = " + score
+function changescore(){
+    if (diff === "4 digits"){
+        scoreinc = 4;
+    }
+    if (diff === "3 digits"){
+        scoreinc = 3;
+    }
+    if (diff === "2 digits"){
+        scoreinc = 2;
+    }
+    if (diff === "1 digit"){
+        scoreinc = 1;
+    }
+    score = score + scoreinc;
+    scoretext = "Score = " + score;
+    document.getElementById("score").textContent = scoretext;
+}
+
+let mode = "Addition";
+
+function changemode(){
+    let dropdownmode = document.getElementById("selectmode");
+    mode = dropdownmode.value;
+    
+    if (mode === "Addition"){
+        changevarsaddition();
+        document.getElementById("question").textContent = additiontext;
+    }
+    if (mode === "Subtraction"){
+        changevarssubtraction();
+        document.getElementById("question").textContent = subtractiontext;
+    }
+    if (mode === "Multiplication"){
+        changevarsmult();
+        document.getElementById("question").textContent = multtext;
+    }
+    if (mode === "Division"){
+        changevarsdiv();
+        document.getElementById("question").textContent = divtext;
+    }
+    console.log("mode = " + mode);
+
+    return mode;
+}
+
+function check(){
+    if (mode === "Addition"){
+        checkaddition();
+    }
+    if (mode === "Subtraction"){
+        checksubtraction();
+    }
+    if (mode === "Multiplication"){
+        checkmult();
+    }
+    if (mode === "Division"){
+        checkdiv();
+    }
+}
+
+function changedifficulty(){
+    if (mode === "Addition"){
+        changedifficultyaddition();
+    }
+    if (mode === "Subtraction"){
+        changedifficultysubtraction();
+    }
+    if (mode === "Multiplication"){
+        changedifficultymult();
+    }
+    if (mode === "Division"){
+        changedifficultydiv();
+    }
+
+
+}
+        </script>
+        <p id="question"><script>document.getElementById("question").textContent = additiontext;</script></p>
+        <br>
+        <input type="text" id="answer" placeholder="Answer">
+        <script>
+            let input = document.getElementById("answer");
+            input.addEventListener("keydown", function(event) {
+            if(event.key === "Enter") {
+            check();
+            }
+            })
+        </script>
+        <br><br>
+        <button onclick=check();>Submit Answer</button><p id="score"><script>document.getElementById("score").textContent = scoretext;</script></p>
+        <br><br><br><br>
+        <p>Select a difficulty and mode!</p>
+        <select id="selectdiff" onchange="changedifficulty();">
+            <option>4 digits</option>
+            <option>3 digits</option>
+            <option>2 digits</option>
+            <option>1 digit</option>
+        </select>
+        <select id="selectmode" onchange="changemode();">
+            <option>Addition</option>
+            <option>Subtraction</option>
+            <option>Multiplication</option>
+            <option>Division</option>
+        </select>
+    </body>
+</html>
