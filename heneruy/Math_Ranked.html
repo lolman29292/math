@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
         <title>Math Ranked</title>
     </head>
     <body>
-        <br><br>
-        <h1>What is the answer?</h1>
-        <br>
+        <header id="head">
+            <h1>What is the answer?</h1>
+        </header>
         <script src="addition.js"></script>
         <script src="subtraction.js"></script>
         <script src="multiplication.js"></script>
         <script src="division.js"></script>
         <script src="derivatives.js"></script>
+        <script src="style.css"></script>
         <script>
 let score = 0
 let scoreinc = 4
@@ -128,8 +131,8 @@ function changelevel(){
     console.log("level = " + level);
 }
         </script>
+        <section id="section1">
         <p id="question"><script>document.getElementById("question").textContent = additiontext;</script></p>
-        <br>
         <input type="text" id="answer" placeholder="Answer">
         <script>
             let input = document.getElementById("answer");
@@ -139,31 +142,37 @@ function changelevel(){
             }
             })
         </script>
-        <br><br>
-        <button onclick=check();>Submit Answer</button><p id="score"><script>document.getElementById("score").textContent = scoretext;</script></p>
-        <br><br><br><br>
+        <br>
+        <div>
+        <button class="button" onclick=check();>Submit Answer</button>
+        </div>
+        <p id="score"><script>document.getElementById("score").textContent = scoretext;</script></p>
+        </section>
+        <section id="section2">
         <p>Select a level, difficulty and mode!</p>
-        <select id="selectlevel" onchange="changelevel();">
+        <select id="selectlevel" class="dropdown" onchange="changelevel();">
             <option>Arithmetic</option>
             <option>Calculus</option>
         </select>
-        <select id="selectdiff" onchange="changedifficulty();">
+        <select id="selectdiff" class="dropdown" onchange="changedifficulty();">
             <option>4 digits</option>
             <option>3 digits</option>
             <option>2 digits</option>
             <option>1 digit</option>
         </select>
-        <select id="selectmode" onchange="changemode();">
+        <select id="selectmode" class="dropdown" onchange="changemode();">
             <option>Addition</option>
             <option>Subtraction</option>
             <option>Multiplication</option>
             <option>Division</option>
         </select>
+        </section>
         <script>
 let changemodedrop = document.getElementById("selectmode");
 let newmodedrop;
 let changediffdrop = document.getElementById("selectdiff");
 let newdiffdrop;
         </script>
+        <footer></footer>
     </body>
 </html>
