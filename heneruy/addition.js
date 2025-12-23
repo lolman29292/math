@@ -1,5 +1,7 @@
 let digits = 10000;
 let diff = "4 digits";
+let answer;
+let dropdowndiff;
 
 let rand = Math.round(Math.random() * digits); //set random number
 console.log("rand = " + rand);
@@ -9,7 +11,7 @@ if(rand < 1){
 }
 
 function changerand(){
-    let rand = Math.round(Math.random() * digits); //change random number
+    rand = Math.round(Math.random() * digits); //change random number
         if(rand < 1){
         return changerand();
     }
@@ -18,7 +20,7 @@ function changerand(){
 
 let add1 = rand - Math.round(Math.random() * digits); //set 1st add
 function positive(){
-    let add1 = rand - Math.round(Math.random() * digits); //make sure its pos
+    add1 = rand - Math.round(Math.random() * digits); //make sure its pos
   
     if(add1 < 1){
         return positive();
@@ -31,10 +33,10 @@ add1 = positive();
 console.log("add1 = " + add1);
 
 function changeadd1(){
-    let add1 = rand - Math.round(Math.random() * digits); //change 1st add
+    add1 = rand - Math.round(Math.random() * digits); //change 1st add
 
     function positive(){
-        let add1 = rand - Math.round(Math.random() * digits); //make sure its pos
+        add1 = rand - Math.round(Math.random() * digits); //make sure its pos
     
         if(add1 < 1){
             return positive();
@@ -51,8 +53,8 @@ let add2 = rand - add1; //set 2nd add
 console.log("add2 = " + add2);
 
 function changeadd2(){
-let add2 = rand - add1; //change 2nd add
-return add2;
+    add2 = rand - add1; //change 2nd add
+    return(add2);
 }
 
 let additiontext = "What is " + add1 + " + " + add2 + "?";
@@ -69,7 +71,7 @@ function changevarsaddition(){
 }
 
 function checkaddition(){
-    let answer = Number((document.getElementById("answer")).value);
+    answer = Number((document.getElementById("answer")).value);
     console.log("answer = " + answer);
 
     if(answer === rand){
@@ -87,7 +89,7 @@ function checkaddition(){
 }
 
 function changedifficultyaddition(){
-    let dropdowndiff = document.getElementById("selectdiff");
+    dropdowndiff = document.getElementById("selectdiff");
     diff = dropdowndiff.value;
     
     if (diff === "4 digits"){

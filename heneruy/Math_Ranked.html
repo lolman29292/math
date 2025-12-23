@@ -11,6 +11,7 @@
         <script src="subtraction.js"></script>
         <script src="multiplication.js"></script>
         <script src="division.js"></script>
+        <script src="derivatives.js"></script>
         <script>
 let score = 0
 let scoreinc = 4
@@ -55,12 +56,15 @@ function changemode(){
         changevarsdiv();
         document.getElementById("question").textContent = divtext;
     }
+    if(mode === "Derivatives"){
+        changevarsderiv();
+        document.getElementById("question").textContent = derivtext;
+    }
     console.log("mode = " + mode);
-
-    return mode;
 }
 
 function check(){
+if(level === "Arithmetic"){
     if (mode === "Addition"){
         checkaddition();
     }
@@ -73,6 +77,12 @@ function check(){
     if (mode === "Division"){
         checkdiv();
     }
+}
+if(level === "Calculus"){
+    if (mode === "Derivatives"){
+        checkderiv();
+    }
+}
 }
 
 function changedifficulty(){
@@ -88,8 +98,34 @@ function changedifficulty(){
     if (mode === "Division"){
         changedifficultydiv();
     }
+    if (mode === "Derivatives"){
+        changevarsderiv();
+    }
+}
 
-
+let level = "Arithmetic";
+let newlevel = 0
+function changelevel(){
+    level = document.getElementById("selectlevel").value;
+    if (level === "Arithmetic"){
+        changedifficulty();
+        changedifficultyaddition();
+        newdiffdrop = '<option>4 digits</option><option>3 digits</option><option>2 digits</option><option>1 digit</option>';
+        changediffdrop.innerHTML = newdiffdrop;
+        newmodedrop = '<option>Addition</option><option>Subtraction</option><option>Multiplication</option><option>Division</option>';
+        changemodedrop.innerHTML = newmodedrop;
+        mode = "Addition";
+    }
+    if (level === "Calculus"){
+        changevarsderiv();
+        newmodedrop = '<option>Derivatives</option><option>3 digits</option><option>2 digits</option><option>1 digit</option>';
+        changemodedrop.innerHTML = newmodedrop;
+        newdiffdrop = '<option>4 terms</option><option>3 terms</option><option>2 terms</option><option>1 term</option>';
+        changediffdrop.innerHTML = newdiffdrop;
+        mode = "Derivatives";
+    }
+    newlevel++;
+    console.log("level = " + level);
 }
         </script>
         <p id="question"><script>document.getElementById("question").textContent = additiontext;</script></p>
@@ -106,7 +142,11 @@ function changedifficulty(){
         <br><br>
         <button onclick=check();>Submit Answer</button><p id="score"><script>document.getElementById("score").textContent = scoretext;</script></p>
         <br><br><br><br>
-        <p>Select a difficulty and mode!</p>
+        <p>Select a level, difficulty and mode!</p>
+        <select id="selectlevel" onchange="changelevel();">
+            <option>Arithmetic</option>
+            <option>Calculus</option>
+        </select>
         <select id="selectdiff" onchange="changedifficulty();">
             <option>4 digits</option>
             <option>3 digits</option>
@@ -119,5 +159,11 @@ function changedifficulty(){
             <option>Multiplication</option>
             <option>Division</option>
         </select>
+        <script>
+let changemodedrop = document.getElementById("selectmode");
+let newmodedrop;
+let changediffdrop = document.getElementById("selectdiff");
+let newdiffdrop;
+        </script>
     </body>
 </html>
