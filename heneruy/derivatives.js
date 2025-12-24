@@ -46,7 +46,6 @@ function checkderiv(){
         changevarsderiv();
         console.log("YES!");
         document.getElementById("answer").value = "";
-        changescore();
     }
     else{
         console.log("NO! " + answer + "is not " + derivans);

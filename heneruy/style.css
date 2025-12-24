@@ -10,45 +10,45 @@ body {
   line-height: 1.5;
   color: #333;
   background-color: #edf9ff;
+  font-weight: bold;
 }
 
-#head {
+
+#section0 {
   background-color: #87afc5;
   color: #edf9ff;
-  padding: 40px;
+  padding: 55px;
   text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,.15);
 }
 
-#head h1 {
-  font-size: 3rem;
-}
-
-.button {
+button {
   color: #333;
   font-size: 1.25rem;
   border-radius: 5px;
   cursor: pointer;
   padding: 5px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,.15);
+  background-color: #f5f5f5;
 }
 
 #section1 {
   text-align: center;
-  padding: 90px;
+  padding: 100px;
 }
 
 .dropdown {
   cursor: pointer;
-  background-color: #f5f5f5;
   font-weight: bold;
+  font-size: 1.1rem;
+  background-color: #f5f5f5;
   border-radius: 5px;
   padding: 5px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
 }
 
 #answer {
   border-radius: 5px;
-  font-weight: bold;
   padding: 5px;
   width: 20%;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -57,21 +57,29 @@ body {
 #section2 {
   text-align: center;
   padding-top: 45px;
-  font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   background-color: #87afc5;
   color: #edf9ff;
-  padding-bottom: 100px;
+  padding-bottom: 75px;
+  box-shadow: 0 -4px 6px rgba(0,0,0,.15)
+}
+
+#head {
+  padding: 45px;
+  background-color: #333;
+  box-shadow: 0 4px 6px rgba(0,0,0,.15);
+  position: relative;
+  z-index: 10;
 }
 
 #question {
-  font-weight: bold;
   font-size: 1.25rem;
 }
 
 footer {
-  padding: 100px;
+  padding: 70px;
   background-color: #333;
+  box-shadow: 0 -4px 6px rgba(0,0,0,.15);
 }
 
 div {
@@ -80,5 +88,5 @@ div {
 }
 
 p {
-  padding-bottom: 35px;
+  padding-bottom: 25px;
 }
